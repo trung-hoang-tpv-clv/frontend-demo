@@ -1,9 +1,9 @@
 import axios from 'axios';
 import getConfig from 'next/config';
-import { LoginRequest } from "@/types/login-request";
-import { LoginResponse } from '@/types/login-response';
-import { RegisterRequest } from '@/types/register-request';
-import { RegisterResponse } from '@/types/register-response';
+import { LoginRequest } from "@/common/types/login-request";
+import { LoginResponse } from '@/common/types/login-response';
+import { RegisterRequest } from '@/common/types/register-request';
+import { RegisterResponse } from '@/common/types/register-response';
 
 const { publicRuntimeConfig } = getConfig();
 const API_BASE_URL = publicRuntimeConfig.API_BASE_URL;

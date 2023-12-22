@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import authService from "@/service/authService";
+import authService from "@/common/service/authService";
 
 export const authOptions: NextAuthOptions = {
   pages: {
@@ -55,7 +55,14 @@ export const authOptions: NextAuthOptions = {
 
       return token;
     },
+    async session({ session, token }){
+      return {
+        ...session,
+        accessToken: token.accessToken,
+      };
+    }
   },
+  secret: process.env.SECRET_KEY,
 };
 
 export default NextAuth(authOptions);
