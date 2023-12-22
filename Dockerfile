@@ -1,4 +1,4 @@
-FROM node:16-alpine as fromBuilder
+FROM node:18-alpine as fromBuilder
 
 WORKDIR /app
 
@@ -6,7 +6,7 @@ COPY . /app
 RUN yarn install
 RUN yarn run build
 
-FROM node:16-alpine
+FROM node:18-alpine
 
 WORKDIR /home/app
 
