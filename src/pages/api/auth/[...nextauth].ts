@@ -15,16 +15,16 @@ export const authOptions: NextAuthOptions = {
       name: "Sign in",
       id: "credentials",
       credentials: {
-        username: { type: "text" },
+        email: { type: "text" },
         password: { type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials?.username || !credentials.password) {
+        if (!credentials?.email || !credentials.password) {
           return null;
         }
         try {
           const userLogIn = await authService.doLogIn({
-            username: credentials.username,
+            email: credentials.email,
             password: credentials.password,
           });
           if (!userLogIn) {
@@ -33,7 +33,7 @@ export const authOptions: NextAuthOptions = {
           return {
             id: userLogIn.userId,
             name: userLogIn.fullName,
-            email: userLogIn.username,
+            email: userLogIn.email,
             accessToken: userLogIn.accessToken,
           };
         } catch (error: any) {

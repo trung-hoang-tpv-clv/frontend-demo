@@ -24,7 +24,7 @@ export default function SignUp() {
     const data = new FormData(event.currentTarget);
     try {
       await authService.registerUser({
-        username: data.get('username') as string,
+        email: data.get('email') as string,
         password: data.get('password') as string,
         firstName: data.get('firstName') as string,
         lastName: data.get('lastName') as string,
@@ -80,10 +80,10 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
-                  id="username"
-                  label="Username"
-                  name="username"
-                  autoComplete="username"
+                  id="email"
+                  label="Email"
+                  name="email"
+                  autoComplete="email"
                 />
               </Grid>
               <Grid item xs={12}>

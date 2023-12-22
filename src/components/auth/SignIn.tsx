@@ -31,14 +31,14 @@ export default function SignIn() {
     try {
       const res = await signIn("credentials", {
         redirect: false,
-        username: data.get('username'),
+        email: data.get('email'),
         password: data.get('password'),
         callbackUrl,
       });
       if (!res?.error) {
         router.push(callbackUrl);
       } else {
-        alert("Username or password incorect");
+        alert("Email or password incorect");
       }
     } catch (error: any) {
       alert(error.message || "Sign in failed");
@@ -68,10 +68,10 @@ export default function SignIn() {
               margin="normal"
               required
               fullWidth
-              id="username"
-              label="Username"
-              name="username"
-              autoComplete="username"
+              id="email"
+              label="Email"
+              name="email"
+              autoComplete="email"
               autoFocus
             />
             <TextField
