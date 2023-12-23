@@ -7,8 +7,8 @@ export async function middleware(req: NextRequest) {
     req,
     secret: process.env.SECRET_KEY,
   });
-  
-  if (!pathname.endsWith("/sign-in") && !token) {
+
+  if (!pathname.startsWith("/auth") && !token) {
     return NextResponse.redirect(new URL("/auth/sign-in", req.url));
   }
 
