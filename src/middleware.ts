@@ -12,6 +12,10 @@ export async function middleware(req: NextRequest) {
     return NextResponse.redirect(new URL("/auth/sign-in", req.url));
   }
 
+  if (pathname.endsWith("/") && token) {
+    return NextResponse.redirect(new URL("/sales-transaction", req.url));
+  }
+
   if (pathname.endsWith("/sign-in") && token) {
     return NextResponse.redirect(new URL("/sales-transaction", req.url));
   }
